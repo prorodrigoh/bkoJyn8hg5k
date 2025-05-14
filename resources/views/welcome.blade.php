@@ -7,6 +7,6 @@
 </head>
 <body>
     <!-- <livewire:counter /> -->
-    <livewire:bird-count-form />
+    <livewire:bird-count-form :birdCount="99"/>
 </body>
 </html>
