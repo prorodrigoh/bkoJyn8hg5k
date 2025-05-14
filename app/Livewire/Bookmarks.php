@@ -6,6 +6,7 @@ use App\Models\Bookmark;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Notifications\ActionConfirmed;
 
 class Bookmarks extends Component
 {
@@ -49,6 +50,11 @@ class Bookmarks extends Component
         $bookmark->delete();
     }
 
+    public function sendNotification()
+    {
+        sleep(5);
+        Auth::user()->notify(new ActionConfirmed());
+    }
     
     public function mount()
     {
