@@ -6,14 +6,6 @@
     <title>Livewire Crash Course</title>
 </head>
 <body>
-    <div>
-        Send Event: <livewire:send-event />
-    </div>
-    <div>
-        <livewire:receive-event lazy/>
-    </div>
-    <div>
-        <livewire:lazy lazy/>
-    </div>
+    <livewire:bird-count-form />
 </body>
 </html>

@@ -10,8 +10,9 @@
         <textarea wire:model="notes"></textarea>
         </div>
         <div>
-        <button type="submit">Add a new entry</button>
+        <button type="submit" style="cursor: pointer;">Add a new entry</button>
         </div>
+
     </form>
     @if($errors->any())
         <div>
@@ -24,12 +25,16 @@
     @endif
     <div>
         @foreach ($entries as $entry)
-            <div>
+            <div wire:key="{{ $entry->id }}" wire:transition>
                 <ul>
-                    <li>Bird Count: {{ $entry->bird_count }}</li>
-                    <li>Notes: {{ $entry->notes }}</li>
+                    <li style="list-style-type: none;"><strong>Bird Count:</strong> {{ $entry->bird_count }}</li>
+                    <li style="list-style-type: none;"><strong>Notes:</strong> {{ $entry->notes }}</li>
+                    <li style="list-style-type: none;">
+                        <button style="cursor: pointer;" wire:click="delete({{ $entry->id }})">Delete</button>
+                    </li>
                 </ul>
             </div>
+            
         @endforeach
     </div>
 </div>

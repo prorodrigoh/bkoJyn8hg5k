@@ -8,9 +8,10 @@ use Livewire\Attributes\Validate;
 
 class BirdCountForm extends Component
 {
-    public function mount($birdCount)
+
+    public function mount()
     {
-        $this->bird_count = $birdCount;
+        $this->bird_count = 0;
     }
     
     #[Validate('required|numeric')]
@@ -25,6 +26,11 @@ class BirdCountForm extends Component
         Bird::create($this->pull());
         $this->reset();
 
+    }
+
+    public function delete($id)
+    {
+        Bird::find($id)->delete();
     }
 
     public function render()
